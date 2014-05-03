@@ -16,7 +16,7 @@ public:
     Direction getDir();
     bool collide(Agent other);
     sf::Vector2f getPosition();
-    sf::IntRect getPositionRect();
+    sf::Rect<float> getPositionRect();
     sf::Vector2f getSize();
     bool intersects(Agent other);
 protected:

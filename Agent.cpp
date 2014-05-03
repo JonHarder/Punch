@@ -70,8 +70,8 @@ sf::Vector2f Agent::getSize() {
 }
 
 bool Agent::intersects(Agent other) {
-    sf::Rect<float> thisBox = sf::Rect<float>(getPosition(), getSize());
-    sf::Rect<float> otherBox = sf::Rect<float>(other.getPosition(), other.getSize());
+    sf::Rect<float> thisBox = getPositionRect();
+    sf::Rect<float> otherBox = other.getPositionRect();
     return thisBox.intersects(otherBox);
 }
 
@@ -79,8 +79,8 @@ bool Agent::collide(Agent other) {
     return intersects(other);
 }
 
-sf::IntRect Agent::getPositionRect() {
-    return drawPtr->getSprite()->getTextureRect();
+sf::Rect<float> Agent::getPositionRect() {
+    return sf::Rect<float>(getPosition(), getSize());
 }
 
 sf::Vector2f Agent::getPosition() {
