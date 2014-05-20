@@ -15,18 +15,20 @@
 #include"AssetManager.hpp"
 #include"Player.hpp"
 #include"Enemy.hpp"
+#include"Animation.hpp"
 
 using namespace std;
 
 Player* player;
 Enemy* enemy;
+Animation* anim;
 
 void update(sf::RenderWindow* window) {
     player->update();
     enemy->update(player->getPosition());
     if(player->collide(*enemy)) {
-        cout << "you lose!" << endl;
-        window->close();
+        // cout << "you lose!" << endl;
+        // window->close();
     }
 }
 
@@ -34,10 +36,12 @@ void render(sf::RenderWindow* window) {
     window->clear(sf::Color(75,75,75));
     player->draw(window);
     enemy->draw(window);
+    anim->draw(window, 0, 0);
     window->display();
 }
 
 int main(void) {
+    anim = new Animation("resources/penguin.png", 3, 2, 32);
     string title = "Punch Everything v.0.01";
     sf::RenderWindow window;
     sf::Clock clock;
@@ -68,6 +72,8 @@ int main(void) {
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
                     window.close();
                 }
+                break;
+            default:
                 break;
             }
         }

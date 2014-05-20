@@ -13,25 +13,25 @@ void Enemy::update(sf::Vector2f playerPos) {
     float diffX = pos.x - playerPos.x;
     float diffY = pos.y - playerPos.y;
     float x,y = 0;
-    float followBuffer = 4.0;
+    // float followBuffer = 4.0;
 
     // horizontal movement
-    if(diffX > followBuffer) {
+    if(diffX > 0) {
         x = -speed;
     }
-    if(diffX < followBuffer) {
+    if(diffX < 0) {
         x = speed;
     }
 
     // vertical movement
-    if(diffY > followBuffer) {
+    if(diffY > 0) {
         y = -speed;
     }
-    if(diffY < followBuffer) {
+    if(diffY < 0) {
         y = speed;
     }
 
-    // make diagonal movement cost the same as solo horiz or vert
+    // make diagonal movement cost the same as solo horiz or solo vert
     if(x && y) {
         if(x < 0) {
             x = -sqrt(abs(x));

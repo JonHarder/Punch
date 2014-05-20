@@ -11,8 +11,8 @@ public:
     sf::Sprite* getSprite();
     void setRotation(float rotation);
 protected:
-private:
     sf::Sprite sprite;
+private:
     sf::Texture tex;
 };
 
