@@ -5,10 +5,7 @@
 
 class Animation : public Drawable {
 public:
-    Animation(std::string source, int xFrames, int framesY, int frameWidth);
-                                                // and the number of frames you want
-                                                // to be a part of the animation
-    
+    Animation(std::string source, int frameWidth);
     void draw(sf::RenderWindow* window, float x, float y); // gives the drawable sprite for next renderable frame
     void reset(); // resets the counter back to initial frame
 private:

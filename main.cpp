@@ -41,7 +41,7 @@ void render(sf::RenderWindow* window) {
 }
 
 int main(void) {
-    anim = new Animation("resources/penguin.png", 3, 2, 32);
+    anim = new Animation("resources/penguin2.png", 32);
     string title = "Punch Everything v.0.01";
     sf::RenderWindow window;
     sf::Clock clock;

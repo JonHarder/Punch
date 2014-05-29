@@ -1,13 +1,14 @@
 #include"Animation.hpp"
 
-Animation::Animation(std::string source, int xFrames, int yFrames, int frameWidth) : Drawable(source) {
-    numFramesX = xFrames;
-    numFramesY = yFrames;
+Animation::Animation(std::string source, int frameWidth) : Drawable(source) {
+    sf::IntRect dimentions = sprite.getTextureRect();
+    numFramesX = dimentions.width / frameWidth;
+    numFramesY = dimentions.height / frameWidth;
     this->frameWidth = frameWidth;
     frameX = frameY = 0;
     spriteRect = sf::IntRect(frameX, frameY, frameWidth, frameWidth);
     sprite.setTextureRect(spriteRect);
-    delayTime = 0.25;
+    delayTime = 0.1;
 }
 
 void Animation::reset() {
